@@ -34,7 +34,7 @@ public class Handler {
         Move move = BoardParser.parseStringToMove(moveString);
         board.doMove(move);
         broker.saveGame(gameId, board);
-        return BoardParser.getBoardStatusboard);
+        return BoardParser.getBoardStatus(board);
     }
 
 }
