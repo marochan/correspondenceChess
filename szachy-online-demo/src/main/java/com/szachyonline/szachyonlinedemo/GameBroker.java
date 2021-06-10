@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.github.bhlangonijr.chesslib.Board;
 import com.github.bhlangonijr.chesslib.move.Move;
 import com.github.bhlangonijr.chesslib.Square;
-@RestController
+
 public class GameBroker {
     
     public GameBroker(){};
@@ -44,10 +44,10 @@ public class GameBroker {
         return generatedString;
     }
 
-    @GetMapping("/join-random")
-    public String addToRandomGames(String gameId){
+   
+    public void addToRandomGames(String gameId){
         //placeholder
-    	return "lol";
+    	
     }
 
     public String getRandomExistingGameId(){
