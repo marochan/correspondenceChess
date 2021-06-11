@@ -1,4 +1,5 @@
 com\szachyonline\szachyonlinedemo\WelcomeController.class
+com\szachyonline\database\MongoConfig.class
 com\szachyonline\szachyonlinedemo\BoardParser.class
 com\szachyonline\szachyonlinedemo\GameBroker.class
 com\szachyonline\szachyonlinedemo\UserRepository.class
