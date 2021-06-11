@@ -5,26 +5,23 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.config.AbstractReactiveMongoConfiguration;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
-import com.mongodb.MongoCredential;
-import com.mongodb.ServerAddress;
-import com.mongodb.client.MongoClient;
 
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
+import com.szachyonline.szachyonlinedemo.UserRepository;
 @Configuration
-@EnableMongoRepositories(basePackages = "com.szachyonline.szachyonlinedemo")
+@EnableMongoRepositories(basePackageClasses = UserRepository.class)
 public class MongoConfig extends AbstractReactiveMongoConfiguration{
 	
 	@Override
 	public String getDatabaseName() {
 		return "ChessGameDB";
 	}
-	@Override
 	@Bean
 	public MongoClient mongoClient() {
-		ServerAddress address = new ServerAddress("127.0.0.1", 27017);
-		MongoCredential credential = MongoCredential.createCredential("mdbUser", getDatabaseName(), "cp".toCharArray());
-		MongoClientOptions options = new MongoClientOptions.Builder().build();
+		
         
-		MongoClient client = new MongoClient(address, credential, options);
+		MongoClient client =  MongoClients.create();
 		return client;
 	}
 }
